@@ -1,0 +1,73 @@
+Regina T. Riphahn, Achim Wambach, and Andreas Million, "Incentive Effects in
+the Demand for Health Care: A Bivariate Panel Count Data Estimation",
+Journal of Applied Econometrics, Vol. 18, No. 4, 2003, pp. 387-405.
+
+The file rwm.data is an ASCII text file, in DOS format, that contains 27,326
+observations on 25 variables, one observation per line. This file is zipped
+in the file rwm-data.zip. Unix users should use "unzip -a".
+
+Data organization:  Person-year observations, sorted by id and year
+Data source:        German Socioeconomic Panel Survey, years 1984-95.
+
+Description of variables:
+
+id	        person - identification number
+female	    female = 1; male = 0
+year	    calendar year of the observation
+age	        age in years
+hsat	    health satisfaction, coded 0 (low) - 10 (high)
+handdum	    handicapped = 1; otherwise = 0
+handper	    degree of handicap in percent (0 - 100)
+hhninc	    household nominal monthly net income in German marks / 1000
+hhkids	    children under age 16 in the household = 1; otherwise = 0
+educ	    years of schooling
+married	    married = 1; otherwise = 0
+haupts	    highest schooling degree is Hauptschul degree = 1; otherwise = 0
+reals	    highest schooling degree is Realschul degree = 1; otherwise = 0
+fachhs	    highest schooling degree is Polytechnical degree = 1; otherwise = 0
+abitur	    highest schooling degree is Abitur = 1; otherwise = 0
+univ	    highest schooling degree is university degree = 1; otherwise = 0
+working	    employed = 1; otherwise = 0
+bluec	    blue collar employee = 1; otherwise = 0
+whitec	    white collar employee = 1; otherwise = 0
+self	    self employed = 1; otherwise = 0
+beamt	    civil servant = 1; otherwise = 0
+docvis	    number of doctor visits in last three months
+hospvis	    number of hospital visits in last calendar year
+public	    insured in public health insurance = 1; otherwise = 0
+addon	    insured by add-on insurance = 1; otherswise = 0
+
+The distributors of the data require that the data are only used for the
+purpose of scientific studies. If additional data / information on the
+German Socioeconomic Panel Data is required, please contact
+SOEPmail@diw.de in order to sign the appropriate contract.
+
+Added July 29, 2013:
+
+(1) For the variables handdum, handper, educ, and hsat missing values
+    were imputed by gender-specific sample average values. Only the
+    imputed values have more than 6 digits.
+
+(2) In table 1 of the paper the appropriate counts for male hospital
+    visits are
+
+    for 3 visits        0.15
+    for 4-9 visits      0.203
+	
+(3) The reference year in table 2 is 1984.
+	
+(4) Table 3: The labels yes and no are inverted for descriptives of
+    males' values for the variables married and children in household.
+    
+(5) The variables handdum and handper are miscoded in 1987. The
+    handdum indicator shows swapped values for 0 and 1. The handper
+    variable was erroneously imputed.
+	    
+I apologize for any hassles this may (have) cause(d).
+	    
+
+Prof. Regina T. Riphahn, Ph.D.
+WWZ - Uni.Basel - Petersgraben 51 - CH 4003 Basel
+Phone: +41-61-267-3367 Fax: +41-61-267-3351
+http://www.unibas.ch/wwz/stat/
+E-mail: regina.riphahn@unibas.ch
