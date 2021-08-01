@@ -1,7 +1,7 @@
 % Empirical exercise - The maximum likelihood objective function for the multinomial logit model
 
 function sumloglik = exercisemnlloglik(Beta,y,X,J)
-%% Define parameters 
+%% Define parameters
 N = size(X,1);
 
 %% Define the exponential function
