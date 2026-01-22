@@ -1,4 +1,4 @@
-# R Workshop - Script File
+# R Workshop Script File
 
 # -------------------------------------------------------------------------
 # 2. Program Window
@@ -58,7 +58,7 @@ a = 5+5 # You can annotate code.
 a = 
 5+5
 # You can mask multiple lines of code. E.g.:
-# a = 5+5 
+# a = 5+5
 # b = a+1
 # You can mask a single line of code. E.g.:
 # a = 5+5
@@ -67,15 +67,15 @@ a =
 # 8. Importing Raw Data Files
 # -------------------------------------------------------------------------
 rm(list = ls())
-filename = "M:/RW - csv file.csv"
+filename = "M:/RW csv file.csv"
 rwrdatafile = read.csv(filename,header = TRUE,sep = ",",dec = ".")
-save(rwrdatafile,file = "M:/RW - rdata file.RData")
+save(rwrdatafile,file = "M:/RW rdata file.RData")
 
 # -------------------------------------------------------------------------
 # 9. Opening Data Files
 # -------------------------------------------------------------------------
 rm(list = ls())
-load("M:/RW - rdata file.RData")
+load("M:/RW rdata file.RData")
 
 # -------------------------------------------------------------------------
 # 10. Browsing the Data
@@ -83,7 +83,7 @@ load("M:/RW - rdata file.RData")
 rwrdatafile[1:20,]
 rwrdatafile[,1,drop = FALSE]
 unique(rwrdatafile[,4])
-rwrdatafile[rwrdatafile[,4] == 1,c(1,2,4)]
+rwrdatafile[rwrdatafile[1:20,4] == 1,c(1,2,4)]
 rwrdatafile[which(rwrdatafile[1:20,4] == 1),c(1,2,4)]
 rwrdatafile[order(rwrdatafile[,2],-rwrdatafile[,1]),]
 rwrdatafile = rwrdatafile[order(rwrdatafile[,2],-rwrdatafile[,1]),]
@@ -141,7 +141,7 @@ rwrdatafile = rwrdatafile[-tag,]
 # 15. Prepare Data for Regression Analaysis
 # -------------------------------------------------------------------------
 rm(list = ls())
-load("M:/RW - rdata file.RData")
+load("M:/RW rdata file.RData")
 rwrdatafile = rwrdatafile[!is.nan(rwrdatafile[,2]),]
 N = nrow(rwrdatafile)
 k = ncol(rwrdatafile)
@@ -200,7 +200,7 @@ result[1]
 # 21. Debugging Program Code
 # -------------------------------------------------------------------------
 rm(list = ls())
-load ("M:/RW - rdata file.RData")
+load ("M:/RW rdata file.RData")
 uniq = unique(rwrdatafile[,2])
 length = length(uniq)
 for (i in 1:length){
@@ -208,7 +208,37 @@ for (i in 1:length){
 }
 
 # -------------------------------------------------------------------------
-# 22. Help System
+# 22. Beyond Base R
+# -------------------------------------------------------------------------
+rm(list = ls(all = TRUE))
+install.packages("dplyr")
+library(dplyr)
+data(iris)
+View(iris)
+IrisMutated = iris %>% mutate(Sepal.Area = Sepal.Length * Sepal.Width)
+
+rm(list = ls(all = TRUE))
+install.packages("tibble")
+library(tibble)
+library(dplyr)
+data(mtcars)
+View(mtcars)
+mtcarsNamed = mtcars %>% rownames_to_column(var = "car")
+TopTwo = mtcarsNamed %>% group_by(cyl) %>% slice_max(hp,n = 2) %>% 
+  select(car,cyl,hp)
+
+rm(list = ls(all = TRUE))
+install.packages("ggplot2")
+library(ggplot2)
+data(iris)
+View(iris)
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
+  geom_point() + 
+  labs(title = "Iris Sepal Dimensions", 
+       x = "Sepal Length (cm)", y = "Sepal Width (cm)")
+
+# -------------------------------------------------------------------------
+# 23. Help System
 # -------------------------------------------------------------------------
 help.search("mean")
 help(mean)
